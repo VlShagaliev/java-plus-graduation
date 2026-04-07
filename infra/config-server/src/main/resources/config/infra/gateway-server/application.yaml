@@ -11,6 +11,6 @@ spring:
           enabled: true
       routes:
         - id: main_service_route
-          uri: lb://ewm-service
+          uri: lb://main-service
           predicates:
             - Path=/**
