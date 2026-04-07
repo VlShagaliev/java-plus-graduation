@@ -5,14 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication(scanBasePackages = {
-        "ru.practicum.ewm",
-        "ru.practicum.stats"
-})
+@SpringBootApplication
 @ConfigurationPropertiesScan
 @EnableDiscoveryClient
-public class EwmApplication {
+public class EwmService {
+
     public static void main(String[] args) {
-        SpringApplication.run(EwmApplication.class, args);
+        SpringApplication.run(EwmService.class, args);
     }
+
 }
