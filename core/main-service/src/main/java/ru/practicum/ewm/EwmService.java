@@ -5,7 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "ru.practicum.ewm",
+        "ru.practicum.stats"
+})
 @ConfigurationPropertiesScan
 @EnableDiscoveryClient
 public class EwmService {
