@@ -1,3 +1,7 @@
+server:
+  port:
+    8080
+
 spring:
   cloud:
     gateway:
@@ -69,6 +73,3 @@ spring:
           predicates:
             - Path=/stats
             - Method=GET
-
-server:
-  port: 8080
