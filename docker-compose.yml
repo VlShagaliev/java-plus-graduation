@@ -51,7 +51,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      ewm-db:
+      main-db:
         condition: service_healthy
       stats-server:
         condition: service_started
