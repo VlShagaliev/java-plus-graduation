@@ -7,7 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(scanBasePackages = {
         "ru.practicum.ewm",
-        "ru.practicum.stats"
+        "ru.practicum.stats",
+        "ru.practicum"
 })
 @ConfigurationPropertiesScan
 @EnableDiscoveryClient
