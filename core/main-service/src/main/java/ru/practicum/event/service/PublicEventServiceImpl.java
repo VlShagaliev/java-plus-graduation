@@ -90,7 +90,7 @@ public class PublicEventServiceImpl implements PublicEventService {
                 event,
                 EventDateTimeUtils.defaultStart(),
                 EventDateTimeUtils.defaultEnd(),
-                UrlUtils.removeTrailingNumberSegment(request.getRequestURI())
+                request.getRequestURI()
         );
 
         statsService.sendHit(request);
