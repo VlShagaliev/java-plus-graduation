@@ -1,3 +1,7 @@
+server:
+  port:
+    34555
+
 spring:
   application:
     name: stats-server
