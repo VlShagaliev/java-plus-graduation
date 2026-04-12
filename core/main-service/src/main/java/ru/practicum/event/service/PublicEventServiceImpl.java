@@ -94,7 +94,6 @@ public class PublicEventServiceImpl implements PublicEventService {
         );
 
         statsService.sendHit(request);
-
         return dto;
     }
 }
