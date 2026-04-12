@@ -88,7 +88,7 @@ public class EventDtoService {
         final long eventId = event.getId();
         final long views = statsService
                 .countEventViews(List.of(event), start, end, baseUri)
-                .getOrDefault(eventId, 1L);
+                .getOrDefault(eventId, 0L);
         final long confirmedRequests = statsService.countConfirmedRequests(eventId);
 
         EventFullDto dto = EventMapper.toFullDto(event);
