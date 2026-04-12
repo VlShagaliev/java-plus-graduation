@@ -52,7 +52,7 @@ public class AdminController {
         categoryService.delete(id);
     }
 
-    @PatchMapping("categories/{id}")
+    @PatchMapping("/categories/{id}")
     @ResponseStatus(HttpStatus.OK)
     public CategoryDto updateCategory(
             @PathVariable long id,
