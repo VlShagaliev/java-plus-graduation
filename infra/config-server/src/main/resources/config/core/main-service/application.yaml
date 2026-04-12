@@ -12,7 +12,7 @@ spring:
     init:
       mode: always
   datasource:
-    url: jdbc:postgresql://localhost:15432/main-db
+    url: jdbc:postgresql://localhost:5432/main-db
     driver-class-name: "org.postgresql.Driver"
     username: "postgres"
     password: "824322"

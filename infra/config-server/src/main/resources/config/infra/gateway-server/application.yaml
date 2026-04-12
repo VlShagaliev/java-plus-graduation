@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 8080
 
 spring:
   application:
@@ -10,30 +10,40 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: admin-categories
+        - id: admin-categories-route
           uri: lb://main-service
           predicates:
-            - Path=/admin/categories/**,/admin/categories
+            - Path=/categories/**,/categories
+          filters:
+            - PrefixPath=/admin
 
-        - id: admin-users
+        - id: admin-users-route
           uri: lb://main-service
           predicates:
-            - Path=/admin/users/**
+            - Path=/users/**
+          filters:
+            - PrefixPath=/admin
 
-        - id: admin-compilations
+        - id: admin-compilations-route
           uri: lb://main-service
           predicates:
-            - Path=/admin/compilations/**
+            - Path=/compilations/**
+          filters:
+            - PrefixPath=/admin
 
-        - id: admin-events
+        - id: admin-events-route
           uri: lb://main-service
           predicates:
-            - Path=/admin/events/**
+            - Path=/events/**
+          filters:
+            - PrefixPath=/admin
 
-        - id: admin-moderation
+        - id: admin-moderation-route
           uri: lb://main-service
           predicates:
-            - Path=/admin/events/moderation,/admin/events/{eventId}/moderate
+            - Path=/events/moderation,/events/{eventId}/moderate
+          filters:
+            - PrefixPath=/admin
 
         - id: public-categories
           uri: lb://main-service
@@ -50,20 +60,26 @@ spring:
           predicates:
             - Path=/events/**,/events
 
-        - id: user-events
+        - id: user-events-route
           uri: lb://main-service
           predicates:
-            - Path=/users/{userId}/events/**
+            - Path=/{userId}/events/**
+          filters:
+            - PrefixPath=/users
 
-        - id: user-requests
+        - id: user-requests-route
           uri: lb://main-service
           predicates:
-            - Path=/users/{userId}/requests/**,/users/{userId}/requests
+            - Path=/{userId}/requests/**,/{userId}/requests
+          filters:
+            - PrefixPath=/users
 
-        - id: user-moderation-comments
+        - id: user-moderation-comments-route
           uri: lb://main-service
           predicates:
-            - Path=/users/{userId}/events/{eventId}/moderation-comments
+            - Path=/{userId}/events/{eventId}/moderation-comments
+          filters:
+            - PrefixPath=/users
 
         - id: stats-service-post
           uri: lb://stats-server
