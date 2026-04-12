@@ -1,6 +1,5 @@
 server:
-  port:
-    34555
+  port: 0
 
 spring:
   application:
