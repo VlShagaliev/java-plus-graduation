@@ -16,3 +16,6 @@ spring:
     driver-class-name: "org.postgresql.Driver"
     username: "postgres"
     password: "824322"
+
+stats-server:
+  service-id: stats-server
