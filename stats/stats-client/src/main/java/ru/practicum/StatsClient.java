@@ -36,6 +36,7 @@ public final class StatsClient {
                 .uriTemplateHandler(new DefaultUriBuilderFactory(serverUrl))
                 .build();
         this.mapper = mapper;
+        System.out.println(serverUrl);
     }
 
     public List<ViewStats> findStats(LocalDateTime start,
