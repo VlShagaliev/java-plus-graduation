@@ -19,3 +19,8 @@ spring:
 
 stats-server:
   service-id: stats-server
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
