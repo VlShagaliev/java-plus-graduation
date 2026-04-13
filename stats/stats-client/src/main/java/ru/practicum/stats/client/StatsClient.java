@@ -29,7 +29,7 @@ public final class StatsClient {
     private final ObjectMapper mapper;
 
     public StatsClient(
-            @Value("${stats-server.url}") String serverUrl,
+            @Value("${stats-server.service-id:stats-server}") String serverUrl,
             RestTemplateBuilder builder,
             ObjectMapper mapper) {
         this.rest = builder
