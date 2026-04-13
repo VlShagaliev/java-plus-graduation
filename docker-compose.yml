@@ -1,22 +1,63 @@
 services:
-  pgdb:
+  stats-db:
     image: postgres:16.1
-    container_name: pgdb
+    container_name: postgres-stats
     ports:
-      - "5432:5432"
-    volumes:
-      - pgdb:/var/lib/postgresql/data/
-      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - "6541:5432"
     environment:
-      - POSTGRES_DB=main-db
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=824322
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=stats
     healthcheck:
-      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
-      timeout: 5s
+      test: ["CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER"]
       interval: 5s
+      timeout: 5s
       retries: 10
 
-volumes:
-  pgdb:
-    driver: local
+  main-db:
+    image: postgres:16.1
+    container_name: postgres-main
+    ports:
+      - "6561:5432"
+    environment:
+      - POSTGRES_PASSWORD=824322
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=main
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  stats-server:
+    build: stats/stats-service
+    image: stats-server
+    container_name: stats-server
+    ports:
+      - "9090:9090"
+    depends_on:
+      stats-db:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT=9090
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://stats-db:5432/stats
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=824322
+
+  main-service:
+    build: core/main-service
+    image: main-service
+    container_name: main-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      main-db:
+        condition: service_healthy
+      stats-server:
+        condition: service_started
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://main-db:5432/main
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=824322
+      - STATS_SERVER_URL=http://stats-server:9090
+      - SERVER_PORT=8080
