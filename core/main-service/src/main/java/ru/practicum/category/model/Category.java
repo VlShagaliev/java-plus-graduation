@@ -1,13 +1,12 @@
 package ru.practicum.category.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @Entity
+@Getter
+@Setter
 @Table(name = "categories")
 @NoArgsConstructor
 @AllArgsConstructor
