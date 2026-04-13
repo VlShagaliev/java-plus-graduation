@@ -16,13 +16,13 @@ services:
 
   main-db:
     image: postgres:16.1
-    container_name: postgres-ewm
+    container_name: postgres-main
     ports:
       - "6561:5432"
     environment:
       - POSTGRES_PASSWORD=824322
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=ewm
+      - POSTGRES_DB=main
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER"]
       interval: 5s
