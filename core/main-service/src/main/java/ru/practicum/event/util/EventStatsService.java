@@ -8,7 +8,7 @@ import ru.practicum.event.mapper.HitMapper;
 import ru.practicum.event.model.Event;
 import ru.practicum.request.model.RequestStatus;
 import ru.practicum.request.repository.RequestRepository;
-import ru.practicum.client.StatsClient;
+import ru.practicum.StatsClient;
 import ru.practicum.dto.HitCreateDto;
 import ru.practicum.dto.HitDto;
 import ru.practicum.dto.ViewStats;

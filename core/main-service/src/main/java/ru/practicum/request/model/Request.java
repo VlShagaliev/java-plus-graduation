@@ -10,7 +10,6 @@ import ru.practicum.user.model.User;
 
 import java.time.LocalDateTime;
 
-@Data
 @Builder
 @Entity
 @Table(name = "requests")

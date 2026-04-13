@@ -9,7 +9,6 @@ import ru.practicum.event.model.Event;
 
 import java.util.List;
 
-@Data
 @Builder
 @Entity
 @Table(name = "compilations")
