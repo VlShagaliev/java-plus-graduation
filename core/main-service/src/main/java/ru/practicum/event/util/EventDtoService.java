@@ -1,11 +1,11 @@
-package ru.practicum.event.util;
+package ru.practicum.ewm.event.util;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.practicum.event.dto.EventFullDto;
-import ru.practicum.event.dto.EventShortDto;
-import ru.practicum.event.mapper.EventMapper;
-import ru.practicum.event.model.Event;
+import ru.practicum.ewm.event.dto.EventFullDto;
+import ru.practicum.ewm.event.dto.EventShortDto;
+import ru.practicum.ewm.event.mapper.EventMapper;
+import ru.practicum.ewm.event.model.Event;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package ru.practicum.event.service;
+package ru.practicum.ewm.event.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -7,18 +7,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.common.exception.BadRequestException;
-import ru.practicum.common.exception.NotFoundException;
-import ru.practicum.event.dto.EventFullDto;
-import ru.practicum.event.dto.EventShortDto;
-import ru.practicum.event.dto.EventSortOption;
-import ru.practicum.event.model.Event;
-import ru.practicum.event.model.EventState;
-import ru.practicum.event.repository.EventRepository;
-import ru.practicum.event.util.EventDateTimeUtils;
-import ru.practicum.event.util.EventDtoService;
-import ru.practicum.event.util.EventStatsService;
-import ru.practicum.event.util.UrlUtils;
+import ru.practicum.ewm.common.exception.BadRequestException;
+import ru.practicum.ewm.common.exception.NotFoundException;
+import ru.practicum.ewm.event.dto.EventFullDto;
+import ru.practicum.ewm.event.dto.EventShortDto;
+import ru.practicum.ewm.event.dto.EventSortOption;
+import ru.practicum.ewm.event.model.Event;
+import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.ewm.event.repository.EventRepository;
+import ru.practicum.ewm.event.util.EventDateTimeUtils;
+import ru.practicum.ewm.event.util.EventDtoService;
+import ru.practicum.ewm.event.util.EventStatsService;
+import ru.practicum.ewm.event.util.UrlUtils;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -90,10 +90,11 @@ public class PublicEventServiceImpl implements PublicEventService {
                 event,
                 EventDateTimeUtils.defaultStart(),
                 EventDateTimeUtils.defaultEnd(),
-                request.getRequestURI()
+                UrlUtils.removeTrailingNumberSegment(request.getRequestURI())
         );
 
         statsService.sendHit(request);
+
         return dto;
     }
 }

@@ -1,10 +1,10 @@
-package ru.practicum.request.dto;
+package ru.practicum.ewm.request.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.practicum.request.model.RequestStatus;
+import ru.practicum.ewm.request.model.RequestStatus;
 
 import java.time.LocalDateTime;
 

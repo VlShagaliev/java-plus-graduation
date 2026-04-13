@@ -1,4 +1,4 @@
-package ru.practicum.admin.controller;
+package ru.practicum.ewm.admin.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -9,26 +9,26 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.category.dto.CategoryDto;
-import ru.practicum.category.dto.NewCategoryDto;
-import ru.practicum.category.service.AdminCategoryService;
-import ru.practicum.compilation.dto.CompilationDto;
-import ru.practicum.compilation.dto.NewCompilationDto;
-import ru.practicum.compilation.dto.UpdateCompilationRequest;
-import ru.practicum.compilation.service.AdminCompilationService;
-import ru.practicum.event.dto.EventFullDto;
-import ru.practicum.event.dto.UpdateEventAdminRequest;
-import ru.practicum.event.model.EventState;
-import ru.practicum.event.service.AdminEventService;
-import ru.practicum.user.dto.NewUserRequest;
-import ru.practicum.user.dto.UserDto;
-import ru.practicum.user.service.AdminUserService;
+import ru.practicum.ewm.category.dto.CategoryDto;
+import ru.practicum.ewm.category.dto.NewCategoryDto;
+import ru.practicum.ewm.category.service.AdminCategoryService;
+import ru.practicum.ewm.compilation.dto.CompilationDto;
+import ru.practicum.ewm.compilation.dto.NewCompilationDto;
+import ru.practicum.ewm.compilation.dto.UpdateCompilationRequest;
+import ru.practicum.ewm.compilation.service.AdminCompilationService;
+import ru.practicum.ewm.event.dto.EventFullDto;
+import ru.practicum.ewm.event.dto.UpdateEventAdminRequest;
+import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.ewm.event.service.AdminEventService;
+import ru.practicum.ewm.user.dto.NewUserRequest;
+import ru.practicum.ewm.user.dto.UserDto;
+import ru.practicum.ewm.user.service.AdminUserService;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
 
 @RestController
 @RequestMapping("/admin")
@@ -52,7 +52,7 @@ public class AdminController {
         categoryService.delete(id);
     }
 
-    @PatchMapping("/categories/{id}")
+    @PatchMapping("categories/{id}")
     @ResponseStatus(HttpStatus.OK)
     public CategoryDto updateCategory(
             @PathVariable long id,

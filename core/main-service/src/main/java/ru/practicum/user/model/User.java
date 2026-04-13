@@ -1,12 +1,14 @@
-package ru.practicum.user.model;
+package ru.practicum.ewm.user.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
 @Builder
 @Entity
-@Getter
-@Setter
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor

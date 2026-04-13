@@ -1,16 +1,18 @@
-package ru.practicum.event.model;
+package ru.practicum.ewm.event.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import ru.practicum.category.model.Category;
-import ru.practicum.user.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.practicum.ewm.category.model.Category;
+import ru.practicum.ewm.user.model.User;
 
 import java.time.LocalDateTime;
 
+@Data
 @Builder
 @Entity
-@Getter
-@Setter
 @Table(name = "events")
 @NoArgsConstructor
 @AllArgsConstructor

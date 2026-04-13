@@ -1,16 +1,18 @@
-package ru.practicum.request.model;
+package ru.practicum.ewm.request.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import ru.practicum.event.model.Event;
-import ru.practicum.user.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.practicum.ewm.event.model.Event;
+import ru.practicum.ewm.user.model.User;
 
 import java.time.LocalDateTime;
 
+@Data
 @Builder
 @Entity
-@Getter
-@Setter
 @Table(name = "requests")
 @NoArgsConstructor
 @AllArgsConstructor

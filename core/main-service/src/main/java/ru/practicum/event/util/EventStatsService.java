@@ -1,17 +1,17 @@
-package ru.practicum.event.util;
+package ru.practicum.ewm.event.util;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.practicum.event.mapper.HitMapper;
-import ru.practicum.event.model.Event;
-import ru.practicum.request.model.RequestStatus;
-import ru.practicum.request.repository.RequestRepository;
-import ru.practicum.StatsClient;
-import ru.practicum.dto.HitCreateDto;
-import ru.practicum.dto.HitDto;
-import ru.practicum.dto.ViewStats;
+import ru.practicum.ewm.event.mapper.HitMapper;
+import ru.practicum.ewm.event.model.Event;
+import ru.practicum.ewm.request.model.RequestStatus;
+import ru.practicum.ewm.request.repository.RequestRepository;
+import ru.practicum.stats.client.StatsClient;
+import ru.practicum.stats.dto.HitCreateDto;
+import ru.practicum.stats.dto.HitDto;
+import ru.practicum.stats.dto.ViewStats;
 
 import java.time.LocalDateTime;
 import java.util.*;
