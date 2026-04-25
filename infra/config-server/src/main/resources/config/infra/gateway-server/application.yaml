@@ -1,11 +1,6 @@
 server:
   port: 8080
 
-eureka:
-  instance:
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${random.uuid}
-
 spring:
   application:
     name: gateway-server
