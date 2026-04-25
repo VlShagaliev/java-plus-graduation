@@ -20,5 +20,5 @@ spring:
     instance:
       preferIpAddress: true
       hostname: localhost
-      instance-id: "${spring.application.name}:${random.value}"
+      instance-id: ${spring.application.name}:${random.uuid}
       leaseRenewalIntervalInSeconds: 10
