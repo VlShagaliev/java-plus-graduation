@@ -13,13 +13,6 @@ spring:
       hibernate.format_sql: true
   sql:
     init.mode: always
-  cloud:
-    openfeign:
-      client:
-        config:
-          default:
-            connectTimeout: 1000
-            readTimeout: 2000
 
 eureka:
   instance:
