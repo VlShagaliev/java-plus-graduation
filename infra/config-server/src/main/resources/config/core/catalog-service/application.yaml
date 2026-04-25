@@ -12,7 +12,7 @@ spring:
     properties:
       hibernate.format_sql: true
   sql:
-    init.mode: never
+    init.mode: always
   cloud:
     openfeign:
       client:
