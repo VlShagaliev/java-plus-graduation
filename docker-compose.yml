@@ -3,7 +3,7 @@ services:
     image: postgres:16.1
     container_name: postgres-stats
     ports:
-      - "6541:5432"
+      - "5433:5432"
     environment:
       POSTGRES_PASSWORD: 824322
       POSTGRES_USER: postgres
@@ -18,15 +18,19 @@ services:
     image: postgres:16.1
     container_name: postgres-main
     ports:
-      - "6561:5432"
+      - "5432:5432"
     environment:
       POSTGRES_PASSWORD: 824322
       POSTGRES_USER: postgres
       POSTGRES_DB: main
     volumes:
-      - ./infra/db/init/main-schema.sql:/docker-entrypoint-initdb.d/01-main-schema.sql:ro
+      - ./infra/db/init/:/docker-entrypoint-initdb.d/:ro
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
       interval: 5s
       timeout: 5s
       retries: 10
+
+volumes:
+      postgres_data:
