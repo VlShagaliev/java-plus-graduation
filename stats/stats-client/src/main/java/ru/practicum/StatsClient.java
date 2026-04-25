@@ -36,7 +36,7 @@ public final class StatsClient {
     private final RetryTemplate retryTemplate;
     private final String statsServiceId;
 
-    public StatsClient(@Value("${stats-server.url}") String statsServiceId,
+    public StatsClient(@Value("${stats-server.service-id:stats-server}") String statsServiceId,
                        RestTemplateBuilder builder,
                        ObjectMapper mapper,
                        DiscoveryClient discoveryClient) {
