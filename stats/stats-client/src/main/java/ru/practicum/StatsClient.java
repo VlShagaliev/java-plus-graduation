@@ -24,7 +24,6 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Map;
 
 import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 
@@ -37,7 +36,7 @@ public final class StatsClient {
     private final RetryTemplate retryTemplate;
     private final String statsServiceId;
 
-    public StatsClient(@Value("${stats-server.service-id:stats-server}") String statsServiceId,
+    public StatsClient(@Value("${stats-server.url}") String statsServiceId,
                        RestTemplateBuilder builder,
                        ObjectMapper mapper,
                        DiscoveryClient discoveryClient) {
@@ -96,7 +95,7 @@ public final class StatsClient {
 
         final HttpEntity<Object> entity = new HttpEntity<>(body, headers);
         try {
-            return rest.exchange(url, method, entity, responseType, Map.of());
+            return rest.exchange(url, method, entity, responseType);
         } catch (HttpStatusCodeException e) {
             final String errorMessage = "On the stats server, an unexpected error occurred";
             try {
