@@ -1,22 +1,36 @@
 services:
-  pgdb:
+  stats-db:
     image: postgres:16.1
-    container_name: pgdb
+    container_name: postgres-stats
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: stats
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  main-db:
+    image: postgres:16.1
+    container_name: postgres-main
     ports:
       - "5432:5432"
-    volumes:
-      - pgdb:/var/lib/postgresql/data/
-      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      - POSTGRES_DB=main-db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=824322
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: main
+    volumes:
+      - ./db-init-service/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
-      timeout: 5s
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
       interval: 5s
+      timeout: 5s
       retries: 10
 
 volumes:
-  pgdb:
-    driver: local
+      postgres_data:
