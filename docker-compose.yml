@@ -1,22 +1,176 @@
 services:
-  pgdb:
+  stats-db:
     image: postgres:16.1
-    container_name: pgdb
+    container_name: postgres-stats
     ports:
-      - "5432:5432"
-    volumes:
-      - pgdb:/var/lib/postgresql/data/
-      - ./postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - "6541:5432"
     environment:
-      - POSTGRES_DB=main-db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=824322
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: stats
     healthcheck:
-      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
-      timeout: 5s
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
       interval: 5s
+      timeout: 5s
       retries: 10
 
-volumes:
-  pgdb:
-    driver: local
+  main-db:
+    image: postgres:16.1
+    container_name: postgres-main
+    ports:
+      - "6561:5432"
+    environment:
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: main
+    volumes:
+      - ./infra/db/init/main-schema.sql:/docker-entrypoint-initdb.d/01-main-schema.sql:ro
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  discovery-server:
+    build: ./infra/discovery-server
+    image: discovery-server
+    container_name: discovery-server
+    ports:
+      - "8761:8761"
+    environment:
+      SERVER_PORT: 8761
+    restart: on-failure
+
+  config-server:
+    build: ./infra/config-server
+    image: config-server
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    depends_on:
+      - discovery-server
+    environment:
+      SERVER_PORT: 8888
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+    healthcheck:
+      test: [ "CMD", "wget", "-qO-", "http://localhost:8888/actuator/health" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: on-failure
+
+  gateway-server:
+    build: ./infra/gateway-server
+    image: gateway-server
+    container_name: gateway-server
+    ports:
+      - "8080:8080"
+    depends_on:
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8080
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+    restart: on-failure
+
+  user-service:
+    build: ./core/user-service
+    image: user-service
+    container_name: user-service
+    depends_on:
+      main-db:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+    environment:
+      SERVER_PORT: 8081
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 824322
+    restart: on-failure
+
+  catalog-service:
+    build: ./core/catalog-service
+    image: catalog-service
+    container_name: catalog-service
+    depends_on:
+      main-db:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+    environment:
+      SERVER_PORT: 8082
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 824322
+    restart: on-failure
+
+  request-service:
+    build: ./core/request-service
+    image: request-service
+    container_name: request-service
+    depends_on:
+      main-db:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+    environment:
+      SERVER_PORT: 8083
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 824322
+    restart: on-failure
+
+  stats-server:
+    build: ./stats/stats-server
+    image: stats-server
+    container_name: stats-server
+    ports:
+      - "9090:9090"
+    depends_on:
+      stats-db:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+    environment:
+      SERVER_PORT: 9090
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:postgresql://stats-db:5432/stats
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 824322
+    restart: on-failure
+
+  event-service:
+    build: ./core/event-service
+    image: event-service
+    container_name: event-service
+    depends_on:
+      main-db:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+      config-server:
+        condition: service_started
+      stats-server:
+        condition: service_started
+    environment:
+      SERVER_PORT: 8084
+      EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
+      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 824322
+      STATS_SERVER_SERVICE_ID: stats-server
+    restart: on-failure
