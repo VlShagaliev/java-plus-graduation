@@ -1,0 +1,31 @@
+server:
+  port: 0
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.format_sql: true
+  sql:
+    init:
+      mode: always
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/stats-db
+    username: "postgres"
+    password: "824322"
+
+stats-server:
+  service-id: stats-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

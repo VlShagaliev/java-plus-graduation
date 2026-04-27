@@ -1,0 +1,126 @@
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: user-admin-users-root
+          uri: lb://user-service
+          predicates:
+            - Path=/admin/users
+
+        - id: user-admin-users-all
+          uri: lb://user-service
+          predicates:
+            - Path=/admin/users/**
+
+        - id: catalog-admin-categories-root
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/categories
+
+        - id: catalog-admin-categories-all
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/categories/**
+
+        - id: catalog-admin-compilations-root
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/compilations
+
+        - id: catalog-admin-compilations-all
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/compilations/**
+
+        - id: catalog-categories-root
+          uri: lb://event-service
+          predicates:
+            - Path=/categories
+
+        - id: catalog-categories-all
+          uri: lb://event-service
+          predicates:
+            - Path=/categories/**
+
+        - id: catalog-compilations-root
+          uri: lb://event-service
+          predicates:
+            - Path=/compilations
+
+        - id: catalog-compilations-all
+          uri: lb://event-service
+          predicates:
+            - Path=/compilations/**
+
+        - id: event-admin-events-root
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/events
+
+        - id: event-admin-events-all
+          uri: lb://event-service
+          predicates:
+            - Path=/admin/events/**
+
+        - id: event-public-events-root
+          uri: lb://event-service
+          predicates:
+            - Path=/events
+
+        - id: event-public-events-all
+          uri: lb://event-service
+          predicates:
+            - Path=/events/**
+
+        - id: request-private-user-requests-root
+          uri: lb://request-service
+          predicates:
+            - Path=/users/*/requests
+
+        - id: request-private-user-requests-all
+          uri: lb://request-service
+          predicates:
+            - Path=/users/*/requests/**
+
+        - id: request-private-event-requests-root
+          uri: lb://request-service
+          predicates:
+            - Path=/users/*/events/*/requests
+
+        - id: request-private-event-requests-all
+          uri: lb://request-service
+          predicates:
+            - Path=/users/*/events/*/requests/**
+
+        - id: event-private-events-root
+          uri: lb://event-service
+          predicates:
+            - Path=/users/*/events
+
+        - id: event-private-events-all
+          uri: lb://event-service
+          predicates:
+            - Path=/users/*/events/**
+
+        - id: stats-hit-root
+          uri: lb://stats-server
+          predicates:
+            - Path=/hit
+
+        - id: stats-stats-root
+          uri: lb://stats-server
+          predicates:
+            - Path=/stats
