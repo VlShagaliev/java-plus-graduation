@@ -1,22 +1,22 @@
-package ru.practicum.ewm.event.service;
+package ru.practicum.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.ewm.category.contract.CategoryExistenceProvider;
-import ru.practicum.ewm.common.exception.ConflictException;
-import ru.practicum.ewm.common.exception.NotFoundException;
-import ru.practicum.ewm.event.api.dto.EventFullDto;
-import ru.practicum.ewm.event.api.dto.UpdateEventAdminRequest;
-import ru.practicum.ewm.event.mapper.EventMapper;
-import ru.practicum.ewm.event.model.Event;
-import ru.practicum.ewm.event.model.EventState;
-import ru.practicum.ewm.event.repository.EventRepository;
-import ru.practicum.ewm.event.util.EventDateTimeUtils;
-import ru.practicum.ewm.event.util.EventDtoService;
-import ru.practicum.ewm.event.util.UrlUtils;
+import ru.practicum.category.contract.CategoryExistenceProvider;
+import ru.practicum.common.exception.ConflictException;
+import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.api.dto.UpdateEventAdminRequest;
+import ru.practicum.mapper.EventMapper;
+import ru.practicum.model.Event;
+import ru.practicum.model.EventState;
+import ru.practicum.repository.EventRepository;
+import ru.practicum.util.EventDateTimeUtils;
+import ru.practicum.util.EventDtoService;
+import ru.practicum.util.UrlUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;

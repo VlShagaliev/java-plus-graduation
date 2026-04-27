@@ -1,4 +1,4 @@
-package ru.practicum.ewm.request.model;
+package ru.practicum.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

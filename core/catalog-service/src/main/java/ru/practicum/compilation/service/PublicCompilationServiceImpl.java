@@ -1,17 +1,17 @@
-package ru.practicum.ewm.catalog.compilation.service;
+package ru.practicum.compilation.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.ewm.catalog.compilation.dto.CompilationDto;
-import ru.practicum.ewm.catalog.compilation.mapper.CompilationMapper;
-import ru.practicum.ewm.catalog.compilation.model.Compilation;
-import ru.practicum.ewm.catalog.compilation.repository.CompilationRepository;
-import ru.practicum.ewm.common.exception.NotFoundException;
-import ru.practicum.ewm.compilation.contract.CompilationEventProvider;
-import ru.practicum.ewm.event.api.dto.EventShortInfo;
+import ru.practicum.compilation.dto.CompilationDto;
+import ru.practicum.compilation.mapper.CompilationMapper;
+import ru.practicum.compilation.model.Compilation;
+import ru.practicum.compilation.repository.CompilationRepository;
+import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.compilation.contract.CompilationEventProvider;
+import ru.practicum.dto.EventShortInfo;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

@@ -1,12 +1,12 @@
-package ru.practicum.ewm.event.controller;
+package ru.practicum.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.ewm.request.contract.EventRequestInfo;
-import ru.practicum.ewm.request.contract.EventRequestInfoProvider;
+import ru.practicum.request.contract.EventRequestInfo;
+import ru.practicum.request.contract.EventRequestInfoProvider;
 
 @RestController
 @RequestMapping("/internal/events")

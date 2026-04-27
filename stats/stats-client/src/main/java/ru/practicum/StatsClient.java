@@ -1,4 +1,4 @@
-package ru.practicum.stats.client;
+package ru.practicum;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,19 +17,19 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import ru.practicum.stats.client.exception.StatsClientException;
-import ru.practicum.stats.client.exception.StatsServerUnavailableException;
-import ru.practicum.stats.common.StatsApiError;
-import ru.practicum.stats.dto.HitCreateDto;
-import ru.practicum.stats.dto.HitDto;
-import ru.practicum.stats.dto.ViewStats;
+import ru.practicum.exception.StatsClientException;
+import ru.practicum.exception.StatsServerUnavailableException;
+import ru.practicum.common.StatsApiError;
+import ru.practicum.dto.HitCreateDto;
+import ru.practicum.dto.HitDto;
+import ru.practicum.dto.ViewStats;
 
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 
 @Component
 public final class StatsClient {

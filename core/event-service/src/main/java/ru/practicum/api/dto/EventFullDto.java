@@ -1,12 +1,14 @@
-package ru.practicum.ewm.event.api.dto;
+package ru.practicum.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.practicum.ewm.event.model.EventState;
-import ru.practicum.ewm.event.model.Location;
+import ru.practicum.dto.CategoryShortInfo;
+import ru.practicum.dto.UserShortInfo;
+import ru.practicum.model.EventState;
+import ru.practicum.model.Location;
 
 import java.time.LocalDateTime;
 

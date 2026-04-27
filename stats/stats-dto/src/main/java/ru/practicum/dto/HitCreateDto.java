@@ -1,4 +1,4 @@
-package ru.practicum.stats.dto;
+package ru.practicum.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 
 @Data
 @Builder

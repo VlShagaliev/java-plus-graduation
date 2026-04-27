@@ -1,4 +1,4 @@
-package ru.practicum.ewm.common.exception.handler;
+package ru.practicum.common.exception.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.practicum.ewm.common.exception.BadRequestException;
-import ru.practicum.ewm.common.exception.ConflictException;
-import ru.practicum.ewm.common.exception.NotFoundException;
+import ru.practicum.common.exception.BadRequestException;
+import ru.practicum.common.exception.ConflictException;
+import ru.practicum.common.exception.NotFoundException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

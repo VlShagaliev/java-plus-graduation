@@ -1,9 +1,9 @@
-package ru.practicum.ewm.event.service;
+package ru.practicum.service;
 
 import jakarta.servlet.http.HttpServletRequest;
-import ru.practicum.ewm.event.api.dto.EventFullDto;
-import ru.practicum.ewm.event.api.dto.UpdateEventAdminRequest;
-import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.api.dto.UpdateEventAdminRequest;
+import ru.practicum.model.EventState;
 
 import java.time.LocalDateTime;
 import java.util.List;

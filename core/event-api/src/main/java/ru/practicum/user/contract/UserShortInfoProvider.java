@@ -1,6 +1,6 @@
-package ru.practicum.ewm.user.contract;
+package ru.practicum.user.contract;
 
-import ru.practicum.ewm.event.api.dto.UserShortInfo;
+import ru.practicum.dto.UserShortInfo;
 
 import java.util.Collection;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package ru.practicum.ewm.event.client;
+package ru.practicum.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.event.api.dto.CategoryShortInfo;
+import ru.practicum.dto.CategoryShortInfo;
 
 import java.util.Collection;
 import java.util.Map;

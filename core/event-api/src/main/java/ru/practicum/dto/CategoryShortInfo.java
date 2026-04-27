@@ -1,4 +1,4 @@
-package ru.practicum.ewm.event.api.dto;
+package ru.practicum.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserShortInfo {
+public class CategoryShortInfo {
     private long id;
     private String name;
 }

@@ -1,16 +1,16 @@
-package ru.practicum.ewm.catalog.category.service;
+package ru.practicum.category.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.ewm.category.contract.CategoryUsageChecker;
-import ru.practicum.ewm.catalog.category.dto.CategoryDto;
-import ru.practicum.ewm.catalog.category.dto.NewCategoryDto;
-import ru.practicum.ewm.catalog.category.mapper.CategoryMapper;
-import ru.practicum.ewm.catalog.category.model.Category;
-import ru.practicum.ewm.catalog.category.repository.CategoryRepository;
-import ru.practicum.ewm.common.exception.ConflictException;
-import ru.practicum.ewm.common.exception.NotFoundException;
+import ru.practicum.category.contract.CategoryUsageChecker;
+import ru.practicum.category.dto.CategoryDto;
+import ru.practicum.category.dto.NewCategoryDto;
+import ru.practicum.category.mapper.CategoryMapper;
+import ru.practicum.category.model.Category;
+import ru.practicum.category.repository.CategoryRepository;
+import ru.practicum.common.exception.ConflictException;
+import ru.practicum.common.exception.NotFoundException;
 
 @Service
 @RequiredArgsConstructor

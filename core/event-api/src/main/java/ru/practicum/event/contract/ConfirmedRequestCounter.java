@@ -1,4 +1,4 @@
-package ru.practicum.ewm.event.contract;
+package ru.practicum.event.contract;
 
 import java.util.Collection;
 import java.util.Map;

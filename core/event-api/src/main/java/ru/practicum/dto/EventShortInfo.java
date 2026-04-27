@@ -1,4 +1,4 @@
-package ru.practicum.ewm.event.api.dto;
+package ru.practicum.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

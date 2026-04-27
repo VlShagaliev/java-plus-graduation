@@ -1,4 +1,4 @@
-package ru.practicum.ewm.catalog.category.service;
+package ru.practicum.category.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

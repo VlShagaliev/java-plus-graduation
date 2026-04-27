@@ -1,15 +1,15 @@
-package ru.practicum.ewm.event.util;
+package ru.practicum.util;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.practicum.ewm.category.contract.CategoryShortInfoProvider;
-import ru.practicum.ewm.event.api.dto.CategoryShortInfo;
-import ru.practicum.ewm.event.api.dto.EventFullDto;
-import ru.practicum.ewm.event.api.dto.UserShortInfo;
-import ru.practicum.ewm.event.dto.EventShortDto;
-import ru.practicum.ewm.event.mapper.EventMapper;
-import ru.practicum.ewm.event.model.Event;
-import ru.practicum.ewm.user.contract.UserShortInfoProvider;
+import ru.practicum.category.contract.CategoryShortInfoProvider;
+import ru.practicum.dto.CategoryShortInfo;
+import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.dto.UserShortInfo;
+import ru.practicum.dto.EventShortDto;
+import ru.practicum.mapper.EventMapper;
+import ru.practicum.model.Event;
+import ru.practicum.user.contract.UserShortInfoProvider;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

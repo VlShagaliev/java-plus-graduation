@@ -1,10 +1,10 @@
-package ru.practicum.ewm.request.mapper;
+package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.ewm.request.dto.ParticipationRequestDto;
-import ru.practicum.ewm.request.model.Request;
-import ru.practicum.ewm.request.model.RequestStatus;
+import ru.practicum.dto.ParticipationRequestDto;
+import ru.practicum.model.Request;
+import ru.practicum.model.RequestStatus;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

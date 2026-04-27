@@ -1,11 +1,11 @@
-package ru.practicum.ewm.catalog.compilation.mapper;
+package ru.practicum.compilation.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.ewm.catalog.compilation.dto.CompilationDto;
-import ru.practicum.ewm.catalog.compilation.dto.NewCompilationDto;
-import ru.practicum.ewm.catalog.compilation.model.Compilation;
-import ru.practicum.ewm.event.api.dto.EventShortInfo;
+import ru.practicum.compilation.dto.CompilationDto;
+import ru.practicum.compilation.dto.NewCompilationDto;
+import ru.practicum.compilation.model.Compilation;
+import ru.practicum.dto.EventShortInfo;
 
 import java.util.List;
 

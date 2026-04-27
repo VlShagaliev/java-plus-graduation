@@ -1,21 +1,21 @@
-package ru.practicum.ewm.request.service;
+package ru.practicum.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.ewm.common.exception.ConflictException;
-import ru.practicum.ewm.common.exception.NotFoundException;
-import ru.practicum.ewm.request.contract.EventRequestInfo;
-import ru.practicum.ewm.request.contract.EventRequestInfoProvider;
-import ru.practicum.ewm.request.contract.UserExistenceProvider;
-import ru.practicum.ewm.request.dto.EventRequestStatusUpdateRequest;
-import ru.practicum.ewm.request.dto.EventRequestStatusUpdateResult;
-import ru.practicum.ewm.request.dto.ParticipationRequestDto;
-import ru.practicum.ewm.request.dto.ParticipationRequestStatus;
-import ru.practicum.ewm.request.mapper.RequestMapper;
-import ru.practicum.ewm.request.model.Request;
-import ru.practicum.ewm.request.model.RequestStatus;
-import ru.practicum.ewm.request.repository.RequestRepository;
+import ru.practicum.common.exception.ConflictException;
+import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.request.contract.EventRequestInfo;
+import ru.practicum.request.contract.EventRequestInfoProvider;
+import ru.practicum.request.contract.UserExistenceProvider;
+import ru.practicum.dto.EventRequestStatusUpdateRequest;
+import ru.practicum.dto.EventRequestStatusUpdateResult;
+import ru.practicum.dto.ParticipationRequestDto;
+import ru.practicum.dto.ParticipationRequestStatus;
+import ru.practicum.mapper.RequestMapper;
+import ru.practicum.model.Request;
+import ru.practicum.model.RequestStatus;
+import ru.practicum.repository.RequestRepository;
 
 import java.util.ArrayList;
 import java.util.List;

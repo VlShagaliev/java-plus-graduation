@@ -1,4 +1,4 @@
-package ru.practicum.ewm.request.dto;
+package ru.practicum.dto;
 
 public enum ParticipationRequestStatus {
     CONFIRMED,

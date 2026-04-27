@@ -1,14 +1,14 @@
-package ru.practicum.ewm.catalog.category.service;
+package ru.practicum.category.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import ru.practicum.ewm.category.contract.CategoryExistenceProvider;
-import ru.practicum.ewm.category.contract.CategoryShortInfoProvider;
-import ru.practicum.ewm.catalog.category.model.Category;
-import ru.practicum.ewm.catalog.category.repository.CategoryRepository;
-import ru.practicum.ewm.common.exception.NotFoundException;
-import ru.practicum.ewm.event.api.dto.CategoryShortInfo;
+import ru.practicum.category.contract.CategoryExistenceProvider;
+import ru.practicum.category.contract.CategoryShortInfoProvider;
+import ru.practicum.category.model.Category;
+import ru.practicum.category.repository.CategoryRepository;
+import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.dto.CategoryShortInfo;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

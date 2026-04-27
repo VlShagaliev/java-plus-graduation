@@ -1,4 +1,4 @@
-package ru.practicum.ewm.event.controller;
+package ru.practicum.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -9,18 +9,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.common.exception.BadRequestException;
-import ru.practicum.ewm.event.api.dto.EventFullDto;
-import ru.practicum.ewm.event.api.dto.UpdateEventAdminRequest;
-import ru.practicum.ewm.event.model.EventState;
-import ru.practicum.ewm.event.service.AdminEventService;
-import ru.practicum.ewm.event.util.EventDateTimeUtils;
+import ru.practicum.common.exception.BadRequestException;
+import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.api.dto.UpdateEventAdminRequest;
+import ru.practicum.model.EventState;
+import ru.practicum.service.AdminEventService;
+import ru.practicum.util.EventDateTimeUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 
 @RestController
 @RequestMapping("/admin/events")

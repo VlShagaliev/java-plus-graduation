@@ -1,17 +1,17 @@
-package ru.practicum.ewm.event.mapper;
+package ru.practicum.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.ewm.event.api.dto.AdminEventAction;
-import ru.practicum.ewm.event.api.dto.EventFullDto;
-import ru.practicum.ewm.event.api.dto.NewEventDto;
-import ru.practicum.ewm.event.api.dto.UpdateEventAdminRequest;
-import ru.practicum.ewm.event.api.dto.UpdateEventRequest;
-import ru.practicum.ewm.event.api.dto.UpdateEventUserRequest;
-import ru.practicum.ewm.event.api.dto.UserEventAction;
-import ru.practicum.ewm.event.dto.EventShortDto;
-import ru.practicum.ewm.event.model.Event;
-import ru.practicum.ewm.event.model.EventState;
+import ru.practicum.api.dto.AdminEventAction;
+import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.api.dto.NewEventDto;
+import ru.practicum.api.dto.UpdateEventAdminRequest;
+import ru.practicum.api.dto.UpdateEventRequest;
+import ru.practicum.api.dto.UpdateEventUserRequest;
+import ru.practicum.api.dto.UserEventAction;
+import ru.practicum.dto.EventShortDto;
+import ru.practicum.model.Event;
+import ru.practicum.model.EventState;
 
 import java.time.LocalDateTime;
 

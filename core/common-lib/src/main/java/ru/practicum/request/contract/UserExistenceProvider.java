@@ -1,4 +1,4 @@
-package ru.practicum.ewm.request.contract;
+package ru.practicum.request.contract;
 
 public interface UserExistenceProvider {
     boolean existsById(long userId);

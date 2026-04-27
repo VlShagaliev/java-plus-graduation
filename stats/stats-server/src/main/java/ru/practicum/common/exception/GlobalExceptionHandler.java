@@ -1,4 +1,4 @@
-package ru.practicum.stats.service.common.exception;
+package ru.practicum.common.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -6,12 +6,12 @@ import org.springframework.web.bind.MissingRequestValueException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.practicum.stats.common.StatsApiError;
+import ru.practicum.common.StatsApiError;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 
 @ControllerAdvice
 public final class GlobalExceptionHandler {

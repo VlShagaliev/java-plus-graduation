@@ -1,10 +1,10 @@
-package ru.practicum.ewm.catalog.compilation.service;
+package ru.practicum.compilation.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.practicum.ewm.compilation.contract.CompilationEventProvider;
-import ru.practicum.ewm.event.api.dto.EventShortInfo;
+import ru.practicum.compilation.contract.CompilationEventProvider;
+import ru.practicum.dto.EventShortInfo;
 
 import java.util.List;
 

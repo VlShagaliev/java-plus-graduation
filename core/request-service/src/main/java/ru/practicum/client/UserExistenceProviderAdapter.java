@@ -1,9 +1,9 @@
-package ru.practicum.ewm.request.client;
+package ru.practicum.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.practicum.ewm.request.contract.UserExistenceProvider;
+import ru.practicum.request.contract.UserExistenceProvider;
 
 @Component
 @RequiredArgsConstructor

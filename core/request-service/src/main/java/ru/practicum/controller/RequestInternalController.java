@@ -1,8 +1,8 @@
-package ru.practicum.ewm.request.controller;
+package ru.practicum.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.request.service.RequestConfirmedRequestCounter;
+import ru.practicum.service.RequestConfirmedRequestCounter;
 
 import java.util.Collection;
 import java.util.Map;

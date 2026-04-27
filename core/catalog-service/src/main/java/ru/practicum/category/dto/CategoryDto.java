@@ -1,4 +1,4 @@
-package ru.practicum.ewm.catalog.category.dto;
+package ru.practicum.category.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

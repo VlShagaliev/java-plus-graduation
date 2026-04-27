@@ -1,4 +1,4 @@
-package ru.practicum.stats.client.exception;
+package ru.practicum.exception;
 
 public class StatsServerUnavailableException extends RuntimeException {
     public StatsServerUnavailableException(String message, Throwable cause) {

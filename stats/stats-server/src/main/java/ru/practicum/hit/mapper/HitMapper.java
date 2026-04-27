@@ -1,10 +1,10 @@
-package ru.practicum.stats.service.hit.mapper;
+package ru.practicum.hit.mapper;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.stats.dto.HitCreateDto;
-import ru.practicum.stats.dto.HitDto;
-import ru.practicum.stats.service.hit.model.Hit;
+import ru.practicum.dto.HitCreateDto;
+import ru.practicum.dto.HitDto;
+import ru.practicum.hit.model.Hit;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class HitMapper {

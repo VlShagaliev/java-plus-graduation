@@ -1,11 +1,11 @@
-package ru.practicum.ewm.request.service;
+package ru.practicum.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.practicum.ewm.event.contract.ConfirmedRequestCounter;
-import ru.practicum.ewm.request.model.RequestStatus;
-import ru.practicum.ewm.request.repository.ConfirmedRequestCountProjection;
-import ru.practicum.ewm.request.repository.RequestRepository;
+import ru.practicum.event.contract.ConfirmedRequestCounter;
+import ru.practicum.model.RequestStatus;
+import ru.practicum.repository.ConfirmedRequestCountProjection;
+import ru.practicum.repository.RequestRepository;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
