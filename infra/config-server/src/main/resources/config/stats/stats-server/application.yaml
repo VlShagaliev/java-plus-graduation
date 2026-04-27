@@ -21,9 +21,6 @@ spring:
     username: "postgres"
     password: "824322"
 
-stats-server:
-  service-id: stats-server
-
 management:
   endpoints:
     web:
