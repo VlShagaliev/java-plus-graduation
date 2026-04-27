@@ -1,2 +1,0 @@
-stats-server:
-  uri: "${STAT_SERVER_URI:http://localhost:9090}"
