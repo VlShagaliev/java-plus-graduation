@@ -1,8 +1,8 @@
-package ru.practicum.category.service;
+package ru.practicum.ewm.catalog.category.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.practicum.category.contract.CategoryUsageChecker;
+import ru.practicum.ewm.category.contract.CategoryUsageChecker;
 
 @Component
 @RequiredArgsConstructor

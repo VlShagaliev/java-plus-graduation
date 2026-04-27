@@ -1,13 +1,13 @@
-package ru.practicum.category.controller;
+package ru.practicum.ewm.catalog.category.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.category.dto.CategoryDto;
-import ru.practicum.category.dto.NewCategoryDto;
-import ru.practicum.category.service.AdminCategoryService;
+import ru.practicum.ewm.catalog.category.dto.CategoryDto;
+import ru.practicum.ewm.catalog.category.dto.NewCategoryDto;
+import ru.practicum.ewm.catalog.category.service.AdminCategoryService;
 
 @RestController
 @RequestMapping("/admin/categories")

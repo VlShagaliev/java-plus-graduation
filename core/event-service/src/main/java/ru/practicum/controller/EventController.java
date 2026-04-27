@@ -1,4 +1,4 @@
-package ru.practicum.controller;
+package ru.practicum.ewm.event.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.constraints.Positive;
@@ -7,16 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.api.dto.EventFullDto;
-import ru.practicum.dto.EventShortDto;
-import ru.practicum.event.api.dto.EventSortOption;
-import ru.practicum.service.PublicEventService;
+import ru.practicum.ewm.event.api.dto.EventFullDto;
+import ru.practicum.ewm.event.dto.EventShortDto;
+import ru.practicum.ewm.event.api.dto.EventSortOption;
+import ru.practicum.ewm.event.service.PublicEventService;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
 
 @RestController
 @RequestMapping("/events")

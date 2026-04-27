@@ -1,15 +1,15 @@
-package ru.practicum.service;
+package ru.practicum.ewm.event.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import ru.practicum.compilation.contract.CompilationEventProvider;
-import ru.practicum.event.api.dto.EventShortInfo;
-import ru.practicum.dto.EventShortDto;
-import ru.practicum.model.Event;
-import ru.practicum.repository.EventRepository;
-import ru.practicum.util.EventDateTimeUtils;
-import ru.practicum.util.EventDtoService;
+import ru.practicum.ewm.compilation.contract.CompilationEventProvider;
+import ru.practicum.ewm.event.api.dto.EventShortInfo;
+import ru.practicum.ewm.event.dto.EventShortDto;
+import ru.practicum.ewm.event.model.Event;
+import ru.practicum.ewm.event.repository.EventRepository;
+import ru.practicum.ewm.event.util.EventDateTimeUtils;
+import ru.practicum.ewm.event.util.EventDtoService;
 
 import java.util.List;
 import java.util.Map;

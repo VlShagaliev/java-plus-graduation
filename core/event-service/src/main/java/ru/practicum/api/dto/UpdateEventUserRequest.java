@@ -1,4 +1,4 @@
-package ru.practicum.api.dto;
+package ru.practicum.ewm.event.api.dto;
 
 import lombok.*;
 

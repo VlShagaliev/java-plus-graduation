@@ -1,10 +1,10 @@
-package ru.practicum.service;
+package ru.practicum.ewm.event.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import ru.practicum.category.contract.CategoryUsageChecker;
-import ru.practicum.repository.EventRepository;
+import ru.practicum.ewm.category.contract.CategoryUsageChecker;
+import ru.practicum.ewm.event.repository.EventRepository;
 
 @Component
 @Primary

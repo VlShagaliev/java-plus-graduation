@@ -1,4 +1,4 @@
-package ru.practicum.common.annotation;
+package ru.practicum.ewm.common.annotation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

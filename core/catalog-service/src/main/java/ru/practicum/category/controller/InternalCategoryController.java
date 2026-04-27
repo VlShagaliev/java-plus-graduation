@@ -1,10 +1,10 @@
-package ru.practicum.category.controller;
+package ru.practicum.ewm.catalog.category.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.category.contract.CategoryExistenceProvider;
-import ru.practicum.category.contract.CategoryShortInfoProvider;
-import ru.practicum.event.api.dto.CategoryShortInfo;
+import ru.practicum.ewm.category.contract.CategoryExistenceProvider;
+import ru.practicum.ewm.category.contract.CategoryShortInfoProvider;
+import ru.practicum.ewm.event.api.dto.CategoryShortInfo;
 
 import java.util.Collection;
 import java.util.Map;

@@ -1,13 +1,13 @@
-package ru.practicum.hit.service;
+package ru.practicum.stats.service.hit.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.dto.HitCreateDto;
-import ru.practicum.dto.HitDto;
-import ru.practicum.hit.mapper.HitMapper;
-import ru.practicum.hit.model.Hit;
-import ru.practicum.hit.repository.HitRepository;
+import ru.practicum.stats.dto.HitCreateDto;
+import ru.practicum.stats.dto.HitDto;
+import ru.practicum.stats.service.hit.mapper.HitMapper;
+import ru.practicum.stats.service.hit.model.Hit;
+import ru.practicum.stats.service.hit.repository.HitRepository;
 
 @Service
 @RequiredArgsConstructor

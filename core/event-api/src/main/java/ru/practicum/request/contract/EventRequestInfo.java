@@ -1,4 +1,4 @@
-package ru.practicum.request.contract;
+package ru.practicum.ewm.request.contract;
 
 import lombok.Builder;
 import lombok.Value;

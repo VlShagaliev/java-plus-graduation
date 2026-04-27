@@ -1,4 +1,4 @@
-package ru.practicum.exception;
+package ru.practicum.ewm.request.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.practicum.common.exception.BadRequestException;
-import ru.practicum.common.exception.ConflictException;
-import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.ewm.common.exception.BadRequestException;
+import ru.practicum.ewm.common.exception.ConflictException;
+import ru.practicum.ewm.common.exception.NotFoundException;
 
 import java.time.LocalDateTime;
 

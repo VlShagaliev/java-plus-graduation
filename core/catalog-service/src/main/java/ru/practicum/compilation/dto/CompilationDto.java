@@ -1,10 +1,10 @@
-package ru.practicum.compilation.dto;
+package ru.practicum.ewm.catalog.compilation.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.practicum.event.api.dto.EventShortInfo;
+import ru.practicum.ewm.event.api.dto.EventShortInfo;
 
 import java.util.List;
 

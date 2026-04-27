@@ -1,14 +1,14 @@
-package ru.practicum.category.service;
+package ru.practicum.ewm.catalog.category.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.category.dto.CategoryDto;
-import ru.practicum.category.mapper.CategoryMapper;
-import ru.practicum.category.model.Category;
-import ru.practicum.category.repository.CategoryRepository;
-import ru.practicum.common.exception.NotFoundException;
+import ru.practicum.ewm.catalog.category.dto.CategoryDto;
+import ru.practicum.ewm.catalog.category.mapper.CategoryMapper;
+import ru.practicum.ewm.catalog.category.model.Category;
+import ru.practicum.ewm.catalog.category.repository.CategoryRepository;
+import ru.practicum.ewm.common.exception.NotFoundException;
 
 import java.util.List;
 

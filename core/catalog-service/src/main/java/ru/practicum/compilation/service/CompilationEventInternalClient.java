@@ -1,9 +1,9 @@
-package ru.practicum.compilation.service;
+package ru.practicum.ewm.catalog.compilation.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.practicum.event.api.dto.EventShortInfo;
+import ru.practicum.ewm.event.api.dto.EventShortInfo;
 
 import java.util.List;
 

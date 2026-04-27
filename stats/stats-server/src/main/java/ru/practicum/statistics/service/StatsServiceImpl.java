@@ -1,11 +1,11 @@
-package ru.practicum.statistics.service;
+package ru.practicum.stats.service.statistics.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.practicum.dto.ViewStats;
-import ru.practicum.common.exception.BadRequestException;
-import ru.practicum.statistics.repository.StatsRepository;
+import ru.practicum.stats.dto.ViewStats;
+import ru.practicum.stats.service.common.exception.BadRequestException;
+import ru.practicum.stats.service.statistics.repository.StatsRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.practicum.repository;
+package ru.practicum.ewm.request.repository;
 
 public interface ConfirmedRequestCountProjection {
     long getEventId();

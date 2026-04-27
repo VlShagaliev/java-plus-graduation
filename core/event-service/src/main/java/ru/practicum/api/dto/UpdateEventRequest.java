@@ -1,4 +1,4 @@
-package ru.practicum.api.dto;
+package ru.practicum.ewm.event.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.FutureOrPresent;
@@ -6,11 +6,11 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import ru.practicum.model.Location;
+import ru.practicum.ewm.event.model.Location;
 
 import java.time.LocalDateTime;
 
-import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
 
 @Data
 @NoArgsConstructor

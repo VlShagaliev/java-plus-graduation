@@ -1,4 +1,4 @@
-package ru.practicum.common;
+package ru.practicum.stats.common;
 
 import lombok.Builder;
 import lombok.Getter;

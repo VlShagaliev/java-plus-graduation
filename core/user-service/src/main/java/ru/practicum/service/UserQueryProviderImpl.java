@@ -1,13 +1,13 @@
-package ru.practicum.service;
+package ru.practicum.ewm.user.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import ru.practicum.common.exception.NotFoundException;
-import ru.practicum.event.api.dto.UserShortInfo;
-import ru.practicum.user.contract.UserExistenceProvider;
-import ru.practicum.user.contract.UserShortInfoProvider;
-import ru.practicum.model.User;
-import ru.practicum.repository.UserRepository;
+import ru.practicum.ewm.common.exception.NotFoundException;
+import ru.practicum.ewm.event.api.dto.UserShortInfo;
+import ru.practicum.ewm.user.contract.UserExistenceProvider;
+import ru.practicum.ewm.user.contract.UserShortInfoProvider;
+import ru.practicum.ewm.user.model.User;
+import ru.practicum.ewm.user.repository.UserRepository;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

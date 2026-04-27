@@ -1,11 +1,11 @@
-package ru.practicum.client;
+package ru.practicum.ewm.event.client;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.practicum.event.api.dto.UserShortInfo;
-import ru.practicum.user.contract.UserExistenceProvider;
-import ru.practicum.user.contract.UserShortInfoProvider;
+import ru.practicum.ewm.event.api.dto.UserShortInfo;
+import ru.practicum.ewm.user.contract.UserExistenceProvider;
+import ru.practicum.ewm.user.contract.UserShortInfoProvider;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;

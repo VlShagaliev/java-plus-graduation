@@ -1,7 +1,7 @@
-package ru.practicum.exception;
+package ru.practicum.stats.client.exception;
 
 import lombok.Getter;
-import ru.practicum.common.StatsApiError;
+import ru.practicum.stats.common.StatsApiError;
 
 @Getter
 public class StatsClientException extends RuntimeException {

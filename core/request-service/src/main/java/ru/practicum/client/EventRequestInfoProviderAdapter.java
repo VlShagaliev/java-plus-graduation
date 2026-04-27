@@ -1,12 +1,12 @@
-package ru.practicum.client;
+package ru.practicum.ewm.request.client;
 
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.practicum.common.exception.NotFoundException;
-import ru.practicum.request.contract.EventRequestInfo;
-import ru.practicum.request.contract.EventRequestInfoProvider;
+import ru.practicum.ewm.common.exception.NotFoundException;
+import ru.practicum.ewm.request.contract.EventRequestInfo;
+import ru.practicum.ewm.request.contract.EventRequestInfoProvider;
 
 @Component
 @RequiredArgsConstructor

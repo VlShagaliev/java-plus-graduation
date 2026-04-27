@@ -1,10 +1,10 @@
-package ru.practicum.repository;
+package ru.practicum.ewm.user.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
-import ru.practicum.model.User;
+import ru.practicum.ewm.user.model.User;
 
 import java.util.List;
 

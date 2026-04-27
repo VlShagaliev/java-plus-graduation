@@ -1,6 +1,6 @@
-package ru.practicum.category.contract;
+package ru.practicum.ewm.category.contract;
 
-import ru.practicum.event.api.dto.CategoryShortInfo;
+import ru.practicum.ewm.event.api.dto.CategoryShortInfo;
 
 import java.util.Collection;
 import java.util.Map;

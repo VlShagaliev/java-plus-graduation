@@ -1,9 +1,9 @@
-package ru.practicum.service;
+package ru.practicum.ewm.event.service;
 
-import ru.practicum.api.dto.EventFullDto;
-import ru.practicum.dto.EventShortDto;
-import ru.practicum.api.dto.NewEventDto;
-import ru.practicum.api.dto.UpdateEventUserRequest;
+import ru.practicum.ewm.event.api.dto.EventFullDto;
+import ru.practicum.ewm.event.dto.EventShortDto;
+import ru.practicum.ewm.event.api.dto.NewEventDto;
+import ru.practicum.ewm.event.api.dto.UpdateEventUserRequest;
 
 import java.util.List;
 

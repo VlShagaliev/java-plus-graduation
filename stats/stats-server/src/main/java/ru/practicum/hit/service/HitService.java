@@ -1,7 +1,7 @@
-package ru.practicum.hit.service;
+package ru.practicum.stats.service.hit.service;
 
-import ru.practicum.dto.HitCreateDto;
-import ru.practicum.dto.HitDto;
+import ru.practicum.stats.dto.HitCreateDto;
+import ru.practicum.stats.dto.HitDto;
 
 public interface HitService {
     HitDto create(HitCreateDto hitDto);

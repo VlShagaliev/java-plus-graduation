@@ -1,4 +1,4 @@
-package ru.practicum.category.model;
+package ru.practicum.ewm.catalog.category.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package ru.practicum.category.dto;
+package ru.practicum.ewm.catalog.category.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

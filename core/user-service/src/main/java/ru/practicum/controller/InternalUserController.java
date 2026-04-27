@@ -1,9 +1,9 @@
-package ru.practicum.controller;
+package ru.practicum.ewm.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.event.api.dto.UserShortInfo;
-import ru.practicum.service.UserQueryProviderImpl;
+import ru.practicum.ewm.event.api.dto.UserShortInfo;
+import ru.practicum.ewm.user.service.UserQueryProviderImpl;
 
 import java.util.Collection;
 import java.util.Map;

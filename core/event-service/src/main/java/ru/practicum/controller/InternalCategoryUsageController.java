@@ -1,11 +1,11 @@
-package ru.practicum.controller;
+package ru.practicum.ewm.event.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.practicum.category.contract.CategoryUsageChecker;
+import ru.practicum.ewm.category.contract.CategoryUsageChecker;
 
 @RestController
 @RequestMapping("/internal/events/categories")

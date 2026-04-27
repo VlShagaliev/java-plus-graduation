@@ -1,16 +1,16 @@
-package ru.practicum.statistics.controller;
+package ru.practicum.stats.service.statistics.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.dto.ViewStats;
-import ru.practicum.statistics.service.StatsService;
+import ru.practicum.stats.dto.ViewStats;
+import ru.practicum.stats.service.statistics.service.StatsService;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
+import static ru.practicum.stats.common.Constants.DATE_TIME_FORMAT;
 
 @RestController
 @RequestMapping("/stats")

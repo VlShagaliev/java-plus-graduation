@@ -1,4 +1,4 @@
-package ru.practicum.compilation.model;
+package ru.practicum.ewm.catalog.compilation.model;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;

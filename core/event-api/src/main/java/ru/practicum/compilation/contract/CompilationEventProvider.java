@@ -1,6 +1,6 @@
-package ru.practicum.compilation.contract;
+package ru.practicum.ewm.compilation.contract;
 
-import ru.practicum.event.api.dto.EventShortInfo;
+import ru.practicum.ewm.event.api.dto.EventShortInfo;
 
 import java.util.List;
 

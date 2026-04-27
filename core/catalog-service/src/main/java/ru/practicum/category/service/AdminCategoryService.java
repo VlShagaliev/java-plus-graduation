@@ -1,7 +1,7 @@
-package ru.practicum.category.service;
+package ru.practicum.ewm.catalog.category.service;
 
-import ru.practicum.category.dto.CategoryDto;
-import ru.practicum.category.dto.NewCategoryDto;
+import ru.practicum.ewm.catalog.category.dto.CategoryDto;
+import ru.practicum.ewm.catalog.category.dto.NewCategoryDto;
 
 public interface AdminCategoryService {
     CategoryDto create(NewCategoryDto newCategory);

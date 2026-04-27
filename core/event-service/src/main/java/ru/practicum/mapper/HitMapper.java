@@ -1,9 +1,9 @@
-package ru.practicum.mapper;
+package ru.practicum.ewm.event.mapper;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import ru.practicum.dto.HitCreateDto;
+import ru.practicum.stats.dto.HitCreateDto;
 
 import java.time.LocalDateTime;
 
