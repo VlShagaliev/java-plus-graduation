@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import ru.practicum.category.contract.CategoryShortInfoProvider;
 import ru.practicum.dto.CategoryShortInfo;
-import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.UserShortInfo;
 import ru.practicum.dto.EventShortDto;
 import ru.practicum.mapper.EventMapper;

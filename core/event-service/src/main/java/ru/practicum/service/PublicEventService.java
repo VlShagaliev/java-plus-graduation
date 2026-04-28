@@ -1,7 +1,7 @@
 package ru.practicum.service;
 
 import jakarta.servlet.http.HttpServletRequest;
-import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.EventShortDto;
 import ru.practicum.dto.EventSortOption;
 

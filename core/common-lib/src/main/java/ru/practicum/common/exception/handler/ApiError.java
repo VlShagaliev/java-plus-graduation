@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @Builder
 public class ApiError {
-    private String status;
-    private String reason;
-    private String message;
-    private String timestamp;
+    private final String status;
+    private final String reason;
+    private final String message;
+    private final String timestamp;
 }

@@ -1,4 +1,4 @@
-package ru.practicum.api.dto;
+package ru.practicum.dto;
 
 public enum AdminEventAction {
     PUBLISH_EVENT,

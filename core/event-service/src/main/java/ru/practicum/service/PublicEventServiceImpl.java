@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.practicum.common.exception.BadRequestException;
 import ru.practicum.common.exception.NotFoundException;
-import ru.practicum.api.dto.EventFullDto;
+import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.EventSortOption;
 import ru.practicum.dto.EventShortDto;
 import ru.practicum.model.Event;
