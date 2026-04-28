@@ -14,17 +14,60 @@ services:
       timeout: 5s
       retries: 10
 
-  main-db:
+  catalog-db:
     image: postgres:16.1
-    container_name: postgres-main
+    container_name: postgres-catalog
     ports:
-      - "6561:5432"
+      - "6542:5432"
     environment:
       POSTGRES_PASSWORD: 824322
       POSTGRES_USER: postgres
-      POSTGRES_DB: main
-    volumes:
-      - ./infra/db/init/main-schema.sql:/docker-entrypoint-initdb.d/01-main-schema.sql:ro
+      POSTGRES_DB: catalog
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  event-db:
+    image: postgres:16.1
+    container_name: postgres-event
+    ports:
+      - "6543:5432"
+    environment:
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: event
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  request-db:
+    image: postgres:16.1
+    container_name: postgres-request
+    ports:
+      - "6544:5432"
+    environment:
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: request
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  user-db:
+    image: postgres:16.1
+    container_name: postgres-user
+    ports:
+      - "6542:5432"
+    environment:
+      POSTGRES_PASSWORD: 824322
+      POSTGRES_USER: postgres
+      POSTGRES_DB: user
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER" ]
       interval: 5s
@@ -80,7 +123,7 @@ services:
     image: user-service
     container_name: user-service
     depends_on:
-      main-db:
+      user-db:
         condition: service_healthy
       discovery-server:
         condition: service_started
@@ -89,7 +132,7 @@ services:
     environment:
       SERVER_PORT: 8081
       EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
-      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-db:5432/user
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 824322
     restart: on-failure
@@ -99,7 +142,7 @@ services:
     image: catalog-service
     container_name: catalog-service
     depends_on:
-      main-db:
+      catalog-db:
         condition: service_healthy
       discovery-server:
         condition: service_started
@@ -108,7 +151,7 @@ services:
     environment:
       SERVER_PORT: 8082
       EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
-      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_URL: jdbc:postgresql://catalog-db:5432/catalog
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 824322
     restart: on-failure
@@ -118,7 +161,7 @@ services:
     image: request-service
     container_name: request-service
     depends_on:
-      main-db:
+      request-db:
         condition: service_healthy
       discovery-server:
         condition: service_started
@@ -127,7 +170,7 @@ services:
     environment:
       SERVER_PORT: 8083
       EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
-      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_URL: jdbc:postgresql://request-db:5432/request
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 824322
     restart: on-failure
@@ -158,7 +201,7 @@ services:
     image: event-service
     container_name: event-service
     depends_on:
-      main-db:
+      event-db:
         condition: service_healthy
       discovery-server:
         condition: service_started
@@ -169,7 +212,7 @@ services:
     environment:
       SERVER_PORT: 8084
       EUREKA_DEFAULT_ZONE: http://discovery-server:8761/eureka
-      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/main
+      SPRING_DATASOURCE_URL: jdbc:postgresql://event-db:5432/event
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: 824322
       STATS_SERVER_SERVICE_ID: stats-server
