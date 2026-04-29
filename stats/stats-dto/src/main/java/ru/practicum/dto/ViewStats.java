@@ -1,8 +1,10 @@
 package ru.practicum.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ViewStats {
     private String app;
     private String uri;
