@@ -10,7 +10,13 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${random.uuid}
 
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: aggregator
+
 collector:
-  producer-properties:
-    bootstrap.servers: localhost:9092
-  snapshot-topic: stats.user-actions.v1
+  kafka:
+    topic:
+      user-actions: stats.user-actions.v1
