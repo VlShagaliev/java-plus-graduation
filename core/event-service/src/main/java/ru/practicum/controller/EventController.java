@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ru.practicum.common.exception.BadRequestException;
 import ru.practicum.dto.EventFullDto;
 import ru.practicum.dto.EventShortDto;
 import ru.practicum.dto.EventSortOption;
@@ -24,10 +25,37 @@ import static ru.practicum.common.Constants.DATE_TIME_FORMAT;
 public class EventController {
     private final PublicEventService eventService;
 
+    @GetMapping("/recommendations")
+    @ResponseStatus(HttpStatus.OK)
+    public List<EventShortDto> getRecommendations(
+            @RequestHeader("X-EWM-USER-ID") long userId,
+            @Positive @RequestParam(defaultValue = "10") int size
+    ) {
+        return eventService.getRecommendations(userId, size);
+    }
+
+    @PutMapping("/{eventId}/like")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void likeEvent(
+            @PathVariable long eventId,
+            @RequestHeader("X-EWM-USER-ID") long userId
+    ) {
+        LocalDateTime eventDate = eventService.getPublishedEventDate(eventId);
+        if (eventDate == null || eventDate.isAfter(LocalDateTime.now())) {
+            throw new BadRequestException("The user can like only events that have already taken place");
+        }
+
+        eventService.likeEvent(eventId, userId);
+    }
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public EventFullDto findPublishedEvent(@PathVariable long id, HttpServletRequest request) {
-        return eventService.findPublishedEvent(id, request);
+    public EventFullDto findPublishedEvent(
+            @PathVariable long id,
+            @RequestHeader("X-EWM-USER-ID") long userId,
+            HttpServletRequest request
+    ) {
+        return eventService.findPublishedEvent(id, userId, request);
     }
 
     @GetMapping
