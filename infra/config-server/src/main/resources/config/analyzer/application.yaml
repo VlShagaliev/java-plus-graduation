@@ -1,0 +1,38 @@
+server:
+  port: 0
+
+grpc:
+  server:
+    port: 0
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/user-db
+    username: "postgres"
+    password: "824322"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+
+analyzer:
+  producer-properties:
+    bootstrap.servers: localhost:9092
+  snapshot-topic: stats.user-actions.v1
+  sensor-topic:
+    - stats.events-similarity.v1
+
+recommendation:
+  weights:
+    view: 0.4
+    register: 0.8
+    like: 1.0
+  defaults:
+    max-results: 10

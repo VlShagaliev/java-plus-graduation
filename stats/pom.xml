@@ -31,6 +31,9 @@
         <module>stats-dto</module>
         <module>stats-proto</module>
         <module>stats-avro</module>
+        <module>aggregator</module>
+        <module>analyzer</module>
+        <module>collector</module>
     </modules>
 
     <dependencyManagement>

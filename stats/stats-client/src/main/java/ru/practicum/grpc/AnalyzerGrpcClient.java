@@ -3,8 +3,8 @@ package ru.practicum.grpc;
 import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.stereotype.Component;
-import ru.practicum.stats.protobuf.dashboard.*;
 import ru.practicum.dto.RecommendedEvent;
+import ru.practicum.protobuf.dashboard.*;
 
 import java.util.*;
 
