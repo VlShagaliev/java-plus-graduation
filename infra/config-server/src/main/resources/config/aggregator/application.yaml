@@ -11,6 +11,7 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: aggregator
+    auto-offset-reset: earliest
 
 aggregator:
   kafka:
@@ -23,3 +24,12 @@ recommendation:
     view: 0.4
     register: 0.8
     like: 1.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

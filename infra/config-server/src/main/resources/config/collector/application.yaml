@@ -20,3 +20,12 @@ collector:
   kafka:
     topic:
       userActions: stats.user-actions.v1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
