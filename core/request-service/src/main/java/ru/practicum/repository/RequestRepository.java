@@ -20,6 +20,8 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     boolean existsByEventIdAndRequesterId(long eventId, long requesterId);
 
+    boolean existsByEventIdAndRequesterIdAndStatus(long eventId, long requesterId, RequestStatus status);
+
     @Modifying
     @Query("UPDATE Request r " +
             "SET r.status = :newStatus " +

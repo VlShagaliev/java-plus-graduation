@@ -22,5 +22,11 @@ public interface PublicEventService {
             HttpServletRequest request
     );
 
-    EventFullDto findPublishedEvent(long id, HttpServletRequest request);
+    EventFullDto findPublishedEvent(long id, long userId, HttpServletRequest request);
+
+    List<EventShortDto> getRecommendations(long userId, int size);
+
+    LocalDateTime getPublishedEventDate(long eventId);
+
+    void likeEvent(long eventId, long userId);
 }
