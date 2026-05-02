@@ -19,4 +19,4 @@ spring:
 collector:
   kafka:
     topic:
-      user-actions: stats.user-actions.v1
+      userActions: stats.user-actions.v1
