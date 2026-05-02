@@ -7,7 +7,7 @@ import ru.practicum.dto.CategoryShortInfo;
 import java.util.Collection;
 import java.util.Map;
 
-@FeignClient(name = "event-service", path = "/internal/categories")
+@FeignClient(name = "catalog-service", path = "/internal/categories")
 public interface CategoryInternalClient {
     @GetMapping("/{categoryId}/exists")
     boolean existsById(@PathVariable("categoryId") long categoryId);
