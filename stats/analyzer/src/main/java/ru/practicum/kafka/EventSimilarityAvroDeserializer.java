@@ -7,13 +7,8 @@ import org.apache.kafka.common.serialization.Deserializer;
 import ru.practicum.avro.EventSimilarityAvro;
 
 import java.nio.ByteBuffer;
-import java.util.Map;
 
 public class EventSimilarityAvroDeserializer implements Deserializer<EventSimilarityAvro> {
-
-    @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
-    }
 
     @Override
     public EventSimilarityAvro deserialize(String topic, byte[] data) {
@@ -37,9 +32,5 @@ public class EventSimilarityAvroDeserializer implements Deserializer<EventSimila
                 throw ex;
             }
         }
-    }
-
-    @Override
-    public void close() {
     }
 }

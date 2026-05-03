@@ -18,6 +18,7 @@ public class UserActionListener {
             topics = "${aggregator.kafka.topic.user-actions}",
             containerFactory = "userActionKafkaListenerContainerFactory"
     )
+
     public void onUserAction(UserActionAvro action) {
         log.info(
                 "Получено действие пользователя из Kafka: userId={}, eventId={}, actionType={}",

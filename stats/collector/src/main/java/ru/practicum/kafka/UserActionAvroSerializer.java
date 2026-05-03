@@ -7,12 +7,17 @@ import org.apache.kafka.common.serialization.Serializer;
 import ru.practicum.avro.UserActionAvro;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Map;
 
 public class UserActionAvroSerializer implements Serializer<UserActionAvro> {
 
-    @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
+    private final SpecificDatumWriter<UserActionAvro> writer;
+    private BinaryEncoder encoder;
+    private final ByteArrayOutputStream out;
+
+    public UserActionAvroSerializer() {
+        this.writer = new SpecificDatumWriter<>(UserActionAvro.getClassSchema());
+        this.out = new ByteArrayOutputStream();
+        this.encoder = EncoderFactory.get().binaryEncoder(out, null);
     }
 
     @Override
@@ -21,19 +26,14 @@ public class UserActionAvroSerializer implements Serializer<UserActionAvro> {
             return null;
         }
 
-        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            SpecificDatumWriter<UserActionAvro> writer =
-                    new SpecificDatumWriter<>(UserActionAvro.getClassSchema());
-            BinaryEncoder encoder = EncoderFactory.get().binaryEncoder(out, null);
+        try {
+            out.reset();
+            encoder = EncoderFactory.get().binaryEncoder(out, encoder);
             writer.write(data, encoder);
             encoder.flush();
             return out.toByteArray();
         } catch (Exception e) {
             throw new IllegalStateException("Не удалось сериализовать UserActionAvro", e);
         }
-    }
-
-    @Override
-    public void close() {
     }
 }

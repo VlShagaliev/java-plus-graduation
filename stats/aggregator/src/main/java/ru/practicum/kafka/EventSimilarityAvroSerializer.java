@@ -7,12 +7,17 @@ import org.apache.kafka.common.serialization.Serializer;
 import ru.practicum.avro.EventSimilarityAvro;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Map;
 
 public class EventSimilarityAvroSerializer implements Serializer<EventSimilarityAvro> {
 
-    @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
+    private final SpecificDatumWriter<EventSimilarityAvro> writer;
+    private BinaryEncoder encoder;
+    private final ByteArrayOutputStream out;
+
+    public EventSimilarityAvroSerializer() {
+        this.writer = new SpecificDatumWriter<>(EventSimilarityAvro.getClassSchema());
+        this.out = new ByteArrayOutputStream();
+        this.encoder = EncoderFactory.get().binaryEncoder(out, null);
     }
 
     @Override
@@ -21,19 +26,14 @@ public class EventSimilarityAvroSerializer implements Serializer<EventSimilarity
             return null;
         }
 
-        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            SpecificDatumWriter<EventSimilarityAvro> writer =
-                    new SpecificDatumWriter<>(EventSimilarityAvro.getClassSchema());
-            BinaryEncoder encoder = EncoderFactory.get().binaryEncoder(out, null);
+        try {
+            out.reset();
+            encoder = EncoderFactory.get().binaryEncoder(out, encoder);
             writer.write(data, encoder);
             encoder.flush();
             return out.toByteArray();
         } catch (Exception e) {
             throw new IllegalStateException("Не удалось сериализовать EventSimilarityAvro", e);
         }
-    }
-
-    @Override
-    public void close() {
     }
 }

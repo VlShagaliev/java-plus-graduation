@@ -8,12 +8,14 @@ import org.apache.kafka.common.serialization.Deserializer;
 import ru.practicum.avro.UserActionAvro;
 
 import java.nio.ByteBuffer;
-import java.util.Map;
 
 public class UserActionAvroDeserializer implements Deserializer<UserActionAvro> {
 
-    @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
+    private final SpecificDatumReader<UserActionAvro> reader;
+    private BinaryDecoder decoder;
+
+    public UserActionAvroDeserializer() {
+        this.reader = new SpecificDatumReader<>(UserActionAvro.getClassSchema());
     }
 
     @Override
@@ -24,16 +26,8 @@ public class UserActionAvroDeserializer implements Deserializer<UserActionAvro> 
             );
         }
 
-        if (data.length == 0) {
-            throw new SerializationException(
-                    "Получен пустой payload для UserActionAvro из топика " + topic
-            );
-        }
-
         try {
-            SpecificDatumReader<UserActionAvro> reader =
-                    new SpecificDatumReader<>(UserActionAvro.getClassSchema());
-            BinaryDecoder decoder = DecoderFactory.get().binaryDecoder(data, null);
+            decoder = DecoderFactory.get().binaryDecoder(data, decoder);
             return reader.read(null, decoder);
         } catch (Exception binaryException) {
             try {
@@ -47,9 +41,5 @@ public class UserActionAvroDeserializer implements Deserializer<UserActionAvro> 
                 throw ex;
             }
         }
-    }
-
-    @Override
-    public void close() {
     }
 }
