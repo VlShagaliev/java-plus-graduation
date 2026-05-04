@@ -13,4 +13,10 @@ public interface RequestInternalClient {
 
     @PostMapping("/events/confirmed-count/batch")
     Map<Long, Long> countConfirmedRequestsByEventIds(@RequestBody Collection<Long> eventIds);
+
+    @GetMapping("/events/{eventId}/users/{userId}/confirmed")
+    boolean hasConfirmedParticipation(
+            @PathVariable("eventId") long eventId,
+            @PathVariable("userId") long userId
+    );
 }

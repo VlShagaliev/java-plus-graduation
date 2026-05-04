@@ -6,6 +6,13 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${random.uuid}
 
+management:
+  endpoints:
+    gateway: enabled
+    web:
+      exposure:
+        include: health,info, gateway
+
 spring:
   application:
     name: gateway-server

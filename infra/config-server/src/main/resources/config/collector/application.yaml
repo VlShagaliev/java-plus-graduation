@@ -1,0 +1,31 @@
+server:
+  port: 0
+
+grpc:
+  server:
+    port: 0
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.uuid}
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: aggregator
+
+collector:
+  kafka:
+    topic:
+      userActions: stats.user-actions.v1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

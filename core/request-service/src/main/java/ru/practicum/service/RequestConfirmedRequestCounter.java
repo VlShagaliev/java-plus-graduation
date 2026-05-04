@@ -36,4 +36,8 @@ public class RequestConfirmedRequestCounter implements ConfirmedRequestCounter {
                         LinkedHashMap::new
                 ));
     }
+
+    public boolean hasConfirmedParticipation(long eventId, long userId) {
+        return requestRepository.existsByEventIdAndRequesterIdAndStatus(eventId, userId, RequestStatus.CONFIRMED);
+    }
 }

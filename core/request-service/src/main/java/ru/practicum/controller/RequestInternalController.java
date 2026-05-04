@@ -23,4 +23,9 @@ public class RequestInternalController {
     public Map<Long, Long> countConfirmedRequestsByEventIds(@RequestBody Collection<Long> eventIds) {
         return confirmedRequestCounter.countConfirmedRequestsByEventIds(eventIds);
     }
+
+    @GetMapping("/events/{eventId}/users/{userId}/confirmed")
+    public boolean hasConfirmedParticipation(@PathVariable long eventId, @PathVariable long userId) {
+        return confirmedRequestCounter.hasConfirmedParticipation(eventId, userId);
+    }
 }

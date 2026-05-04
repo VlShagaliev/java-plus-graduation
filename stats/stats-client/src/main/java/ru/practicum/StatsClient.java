@@ -25,6 +25,7 @@ import ru.practicum.dto.HitDto;
 import ru.practicum.dto.ViewStats;
 
 import java.net.URI;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -42,14 +43,21 @@ public final class StatsClient {
     private final String statsServiceId;
 
     public StatsClient(@Value("${stats-server.service-id:stats-server}") String statsServiceId,
+                       @Value("${stats-client.connect-timeout-ms:200}") long connectTimeoutMs,
+                       @Value("${stats-client.read-timeout-ms:300}") long readTimeoutMs,
+                       @Value("${stats-client.discovery-max-attempts:1}") int discoveryMaxAttempts,
+                       @Value("${stats-client.discovery-backoff-ms:50}") long discoveryBackoffMs,
                        RestTemplateBuilder builder,
                        ObjectMapper mapper,
                        DiscoveryClient discoveryClient) {
-        this.rest = builder.build();
+        this.rest = builder
+                .setConnectTimeout(Duration.ofMillis(Math.max(connectTimeoutMs, 1)))
+                .setReadTimeout(Duration.ofMillis(Math.max(readTimeoutMs, 1)))
+                .build();
         this.mapper = mapper;
         this.discoveryClient = discoveryClient;
         this.statsServiceId = statsServiceId;
-        this.retryTemplate = createRetryTemplate();
+        this.retryTemplate = createRetryTemplate(discoveryMaxAttempts, discoveryBackoffMs);
     }
 
     public List<ViewStats> findStats(LocalDateTime start,
@@ -82,25 +90,34 @@ public final class StatsClient {
     }
 
     private ServiceInstance getInstance() {
+        List<ServiceInstance> instances;
         try {
-            return discoveryClient.getInstances(statsServiceId).getFirst();
+            instances = discoveryClient.getInstances(statsServiceId);
         } catch (Exception exception) {
             throw new StatsServerUnavailableException(
                     "Ошибка обнаружения адреса сервиса статистики с id: " + statsServiceId,
                     exception
             );
         }
+
+        if (instances == null || instances.isEmpty()) {
+            throw new StatsServerUnavailableException(
+                    "Сервис статистики с id '" + statsServiceId + "' не найден в Eureka",
+                    null
+            );
+        }
+        return instances.getFirst();
     }
 
-    private RetryTemplate createRetryTemplate() {
+    private RetryTemplate createRetryTemplate(int maxAttempts, long backOffMs) {
         RetryTemplate template = new RetryTemplate();
 
         FixedBackOffPolicy backOffPolicy = new FixedBackOffPolicy();
-        backOffPolicy.setBackOffPeriod(3000L);
+        backOffPolicy.setBackOffPeriod(Math.max(backOffMs, 1L));
         template.setBackOffPolicy(backOffPolicy);
 
         MaxAttemptsRetryPolicy retryPolicy = new MaxAttemptsRetryPolicy();
-        retryPolicy.setMaxAttempts(3);
+        retryPolicy.setMaxAttempts(Math.max(maxAttempts, 1));
         template.setRetryPolicy(retryPolicy);
 
         return template;
